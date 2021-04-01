@@ -13,4 +13,4 @@ In general, you can expect that each week's code will be made available on Wedne
 
 [**Lab 1**](https://raw.githack.com/robmcdonough/EC421-S21/main/Lab_1.html)
 
- - [**Rmarkdown version**](https://raw.githack.com/edrubin/EC524W20/master/lecture/000/000-slides.Rmd)
+ - [**Rmarkdown version**](https://raw.githack.com/robmcdonough/EC421-S21/main/Lab_1.Rmd)
