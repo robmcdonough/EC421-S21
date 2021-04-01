@@ -1679,10 +1679,15 @@ div.tocify {
 
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
-<p>-My name is Robert, welcome to econometrics lab.</p>
-<p>-This walkthrough is meant to serve as a supplement for the econometrics discussion from Wednesday, Week 1. As anyone who was there knows, we had some technical issues that made the first lab a little choppy. (Thanks, campus wifi).</p>
-<p>-If you want to follow along with this document, open R studio and try copying the code I’ve got below. It should run pretty smoothly.</p>
-<p>-You should be able to access the recording of that discussion section on Canvas.</p>
+<ul>
+<li><p>My name is Robert, welcome to econometrics lab.</p></li>
+<li><p>This walkthrough is meant to serve as a supplement for the econometrics discussion from Wednesday, Week 1. As anyone who was there knows, we had some technical issues that made the first lab a little choppy.</p></li>
+</ul>
+<p>(Thanks, campus wifi).</p>
+<ul>
+<li><p>If you want to follow along with this document, open R studio and try copying the code I’ve got below. It should run pretty smoothly.</p></li>
+<li><p>You should be able to access the recording of that discussion section on Canvas.</p></li>
+</ul>
 </div>
 <div id="r-basics" class="section level1">
 <h1>R Basics</h1>
@@ -1696,19 +1701,23 @@ div.tocify {
 <h2>Running Code</h2>
 <p>Once we write a line of code that we actually want to use, we can get the computer to run that line of code by hitting ‘ctrl’+‘enter’ on a Windows device or ‘cmd’+‘return’ on a Mac.</p>
 <p>We will be working with what is called a <em>script</em>. This is similar to a do file in Stata. It’s basically your workspace. It lets us write, run, and save as much code as we want.</p>
+<ul>
+<li>We can also write and run code from the command line. This is useful for small one-off things that we want to do (say, a quick bit of math), but is not as useful when it comes to bigger projects.</li>
+</ul>
 </div>
 </div>
 <div id="objects-and-functions" class="section level1">
 <h1>Objects and Functions</h1>
 <div id="lesson-1-all-things-are-objects" class="section level2">
 <h2>Lesson 1: All things are objects</h2>
-<p>Everything in R is an object. Every object has two components: a name, and a value. The name is always the same: a string of characters we choose which <em>cannot</em> start with a number or contain spaces. The value of an object can be almost anything. A value can be as simple as a number, or as complicated as a matrix (or even more complicated).</p>
+<p>Everything in R is an object, and every object has two components: a name, and a value. The name is always the same: a string of characters we choose which <em>cannot</em> start with a number or contain spaces. The value of an object can be almost anything. A value can be as simple as a number, or as complicated as a matrix (or even more complicated).</p>
 <ul>
 <li>Once we have some objects, we use functions to manipulate, interact with, create, or get rid of those objects. More on this shortly. First, let’s make some objects.</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="co">#to make an object, we choose a name, then use the &#39;&lt;-&#39; or &#39;=&#39; sign. Then, we put the value to the right of the &#39;=&#39;.</span></a>
-<a class="sourceLine" id="cb2-2" title="2">x&lt;-<span class="dv">10</span></a>
-<a class="sourceLine" id="cb2-3" title="3">y=<span class="dv">5</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="co"># To make an object, we choose a name, then use the &#39;&lt;-&#39; or &#39;=&#39; sign.</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="co"># Then, we put the value to the right of the &#39;=&#39;.</span></a>
+<a class="sourceLine" id="cb2-3" title="3">x&lt;-<span class="dv">10</span></a>
+<a class="sourceLine" id="cb2-4" title="4">y=<span class="dv">5</span></a></code></pre></div>
 <p>We can also do math with objects in R:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">a=<span class="st"> </span>x<span class="op">+</span>y</a>
 <a class="sourceLine" id="cb3-2" title="2">a</a></code></pre></div>
@@ -1722,10 +1731,11 @@ div.tocify {
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1">d=x<span class="op">/</span>y</a>
 <a class="sourceLine" id="cb9-2" title="2">d</a></code></pre></div>
 <pre><code>## [1] 2</code></pre>
+<p>Note: when you run a line of code in R from a script, you’ll see that line of code pop up near the bottom of the console window. Unless an error message also shows up, this means R has run the line. (More on error messages in a second)</p>
 </div>
 <div id="lesson-2-there-are-several-types-of-objects" class="section level2">
 <h2>Lesson 2: There are several types of objects</h2>
-<p>But, as I said, an object does not need to be a number. We can also make <em>character</em> objects (strings of text).</p>
+<p>As I said, an object does not need to be a number. We can also make <em>character</em> objects (strings of text). Let’s give it a shot</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1">sentence=<span class="st"> </span>Robert needs a haircut.</a></code></pre></div>
 <pre><code>## Error: &lt;text&gt;:1:18: unexpected symbol
 ## 1: sentence= Robert needs
@@ -1751,10 +1761,11 @@ div.tocify {
 <a class="sourceLine" id="cb17-2" title="2">vector2=<span class="kw">c</span>(a,b,c,d)</a>
 <a class="sourceLine" id="cb17-3" title="3">vector2</a></code></pre></div>
 <pre><code>## [1]      15      50 9765625       2</code></pre>
-<p>A quick check-in question: how could I make a vector with the actual letters a,b,c,d. Give that a try, and then expand the code below for the answer.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r fold-hide"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" title="1"><span class="co">##If we want R to give us a vector with the characters a,b,c,d... then we just need to tell R that we want those characters using quotation marks!</span></a>
-<a class="sourceLine" id="cb19-2" title="2"></a>
-<a class="sourceLine" id="cb19-3" title="3">Vector_letters=<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;c&quot;</span>,<span class="st">&quot;d&quot;</span>)</a></code></pre></div>
+<p>A quick check-in question: how could I make a vector with the actual letters a,b,c,d. Give that a try, and once you think you’ve got the answer, hit the ’ <em>code</em> ’ button to the right to see how I’d write that code.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r fold-hide"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" title="1"><span class="co">##If we want R to give us a vector with the characters a,b,c,d</span></a>
+<a class="sourceLine" id="cb19-2" title="2"><span class="co">## then we just need to tell R that we want those characters using quotation marks!</span></a>
+<a class="sourceLine" id="cb19-3" title="3"></a>
+<a class="sourceLine" id="cb19-4" title="4">Vector_letters=<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;c&quot;</span>,<span class="st">&quot;d&quot;</span>)</a></code></pre></div>
 <p>We can also do math on vectors:</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1">vector1<span class="op">^</span><span class="dv">2</span></a></code></pre></div>
 <pre><code>##  [1]   1   4   9  16  25  36  49  64  81 100</code></pre>
@@ -1767,8 +1778,7 @@ div.tocify {
 <pre><code>## [1] &quot;40&quot;     &quot;carrot&quot; &quot;banana&quot;</code></pre>
 <p>Notice that R did not include ‘<em>NULL</em>’ in our vector… NULL is a special name in R: it’s the way that we tell R (or R tells us) “this does not exist”.</p>
 <p>So, why didn’t R include ‘<em>NULL</em>’ to our vector?</p>
-<p><span class="math inline">\(\rightarrow\)</span> Because you can’t add the philosophical concept of nonexistence to a vector in R</p>
-<p>(insert <a href="http://gph.is/1MWJgze">mind_blown.gif</a> here).</p>
+<p><span class="math inline">\(\rightarrow\)</span> Because you can’t add the philosophical concept of nonexistence to a vector in R. (insert <a href="http://gph.is/1MWJgze">mind_blown.gif</a> here.)</p>
 <p>By contrast, ‘<em>NA</em>’ is the way that we tell R “there is an empty space here”. R can add empty spaces to vectors just fine.</p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" title="1">vector3=<span class="kw">c</span>(<span class="dv">40</span>, <span class="st">&quot;carrot&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="ot">NA</span>)</a>
 <a class="sourceLine" id="cb26-2" title="2">vector3</a></code></pre></div>
@@ -1786,9 +1796,10 @@ div.tocify {
 <a class="sourceLine" id="cb28-6" title="6"></a>
 <a class="sourceLine" id="cb28-7" title="7"><span class="kw">rm</span>(vector2)</a>
 <a class="sourceLine" id="cb28-8" title="8"></a>
-<a class="sourceLine" id="cb28-9" title="9"><span class="co">##Using rm(), there is a  way to delete EVERYTHING in your R environment. I won&#39;t tell you what it is, but a quick google will do the trick. </span></a></code></pre></div>
-<p>Use rm() carefully. Once something is deleted in R, you can’t get it back.</p>
-<p>But you’ve actually already used a function: <em>c()</em>. This is the function to make a list or a vector.</p>
+<a class="sourceLine" id="cb28-9" title="9"><span class="co">##Using rm(), there is a  way to delete EVERYTHING in your R environment.</span></a>
+<a class="sourceLine" id="cb28-10" title="10"><span class="co">##I won&#39;t tell you what it is, but a quick google will do the trick. </span></a></code></pre></div>
+<p>Use rm() carefully. Once something is deleted in R, you can’t get it back. You’ll have to recreate it from scratch.</p>
+<p><br> <br> But you’ve actually already used a function: <em>c()</em>. This is the function to make a list or a vector.</p>
 <p>Some of the functions you’ll use most commonly are for peeking at or summarizing complicated objects.</p>
 <p>The <em>head()</em> and <em>tail()</em> functions let you look at the first or last <em>x</em> elements of an object</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" title="1"><span class="kw">head</span>(vector1,<span class="dv">3</span>)</a></code></pre></div>
@@ -1821,7 +1832,8 @@ div.tocify {
 <div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" title="1">number_sequence=<span class="kw">seq</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</a>
 <a class="sourceLine" id="cb42-2" title="2">number_sequence</a></code></pre></div>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-<p>But, seq() can make trickier sequences, too. For practice, use the seq() function in R to calculate the sum of all the even numbers between 0 and 1 million. (0,2,4,6,8,…). After you think you’ve got it, expand the code below to see one way you could do it, and the right answer</p>
+<p>But, seq() can make trickier sequences, too…</p>
+<p>For practice, use the seq() function in R to calculate the sum of all the even numbers between 0 and 1 million. (0+2+4+6+8+…). After you think you’ve got it, expand the code below to see one way you could do it, and the right answer</p>
 <p><em>hint: maybe get some help from R by using ?seq</em></p>
 <div class="sourceCode" id="cb44"><pre class="sourceCode r fold-hide"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" title="1"><span class="co">##if we look on the help page for seq(), we see that we can specify the &#39;by&#39; argument, if we want. This will tell R to make our number list by some increment other than just one. So.... if we want the even #s, we can just count by 2s, starting from 0!</span></a>
 <a class="sourceLine" id="cb44-2" title="2">evens=<span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">1000000</span>, <span class="dt">by=</span><span class="dv">2</span>)</a>
@@ -1830,8 +1842,8 @@ div.tocify {
 <a class="sourceLine" id="cb44-5" title="5"><span class="kw">head</span>(evens)</a></code></pre></div>
 <pre><code>## [1]  0  2  4  6  8 10</code></pre>
 <div class="sourceCode" id="cb46"><pre class="sourceCode r fold-hide"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" title="1"><span class="co">##And now let&#39;s compute the sum!</span></a>
-<a class="sourceLine" id="cb46-2" title="2"><span class="kw">sum</span>(b)</a></code></pre></div>
-<pre><code>## [1] 50</code></pre>
+<a class="sourceLine" id="cb46-2" title="2"><span class="kw">sum</span>(evens)</a></code></pre></div>
+<pre><code>## [1] 250000500000</code></pre>
 </div>
 </div>
 <div id="lesson-4-each-object-has-a-class" class="section level2">
@@ -1839,7 +1851,7 @@ div.tocify {
 <p>Before we finish with objects and functions, I should mention that every object in R has a class. Examples of classes are logical, numeric, character, and list. An object’s class is the way that R describes the stuff inside of it</p>
 <p>Classes are important, because R is only willing to use certain functions on certain classes:</p>
 <ul>
-<li>EX: R will not do math on characters. R is really good at math, but even R has not figured out how compute: “blueberry+ Chicago”</li>
+<li>EX: R will not do math on characters. R is really good at math, but even R has not figured out how compute: “blueberry + Chicago”</li>
 </ul>
 <p>We can check the class of something using the class() function</p>
 <div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" title="1"><span class="kw">class</span>(a)</a></code></pre></div>
@@ -1854,20 +1866,23 @@ div.tocify {
 <div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb56-1" title="1"><span class="kw">class</span>(vector3)</a></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
 <p>It’s a character, so we can’t do mathematical operations on it!</p>
-<p>But notice that even though we have a number in the vector, R has converted it to a character</p>
+<p>But notice that R has converted the number 40 in vector3 to a character</p>
 <p>(the letter a has ’’ around it).</p>
 <div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" title="1">vector3</a></code></pre></div>
 <pre><code>## [1] &quot;40&quot;     &quot;carrot&quot; &quot;banana&quot; NA</code></pre>
 <p>Why is this happening?</p>
-<p><span class="math inline">\(\rightarrow\)</span> When you make a list or vector in R, R wants all of the entries in that list to be the same class, so that it can assign that class to the whole object. If you try to give R a vector with different types of entries, R will <em>help</em> you by ‘coercing’ all of the entries to the same class.</p>
-<p>(Note: Whether or not this is actually helpful will depend on your circumstances. Every R user has a story about how R’s ‘help’ has ruined some otherwise good code.)</p>
+<p><span class="math inline">\(\rightarrow\)</span> When you make a list (vector) in R, R wants all of the entries in that list to be the same class, so that it can assign that class to the whole object. If you try to give R a vector with different types of entries, R will <em>help</em> you by ‘coercing’ all of the entries to the same class.</p>
+<ul>
+<li>In this case, since R can’t find a way to convert ‘banana’ to a number, it only has one option: it has to convert the number 40 to the text string ‘40’</li>
+</ul>
+<p>(Note: Whether or not this is actually helpful will depend on your situation. Every R user has a story about how R’s ‘help’ has ruined some otherwise good code.)</p>
 </div>
 </div>
 <div id="using-packages" class="section level1">
 <h1>Using Packages</h1>
 <p>R is really useful because of its ability to use <em>packages</em>.</p>
 <ul>
-<li>Additional software, functions, data, etc. that someone has programmed for R.</li>
+<li>Additional software, functions, data, etc. that someone has programmed to be used in R.</li>
 </ul>
 <div id="lesson-5-installing-and-loading-packages" class="section level2">
 <h2>Lesson 5: Installing and Loading Packages:</h2>
@@ -1884,10 +1899,10 @@ div.tocify {
 <p>You’ll need to reload packages each time you re-open RStudio.</p>
 <div id="why-use-a-package" class="section level3">
 <h3>Why use a package?</h3>
-<p>The big benefit of packages is that they let us avoid extra work. Instead of figuring out how to get R to do something complicated or time consuming, there may be a package that someone has already written that will do that work for us.</p>
+<p>The big benefit of packages is that they let us avoid extra work. Instead of figuring out how to get R to do something complicated or time consuming, there may be a package that someone has already written that will do that work for us faster.</p>
 <p>For instance. Say we need to load 20 packages into R. Using library(), this would take a bit of typing!</p>
 <ul>
-<li>And what if we can’t remember if we’ve already installed all 20 packages?</li>
+<li>(And what if we can’t remember if we’ve already installed all 20 packages?)</li>
 </ul>
 <p>Pacman is a package for “package management” - it helps us load multiple packages at once. Let’s install and use it:</p>
 <div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" title="1"><span class="co">##install the package</span></a>
@@ -1906,8 +1921,9 @@ div.tocify {
 <ul>
 <li>also cool: the p_load function can load/install as many packages as we want:</li>
 </ul>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" title="1"><span class="co">#We just need the tidyverse package today, but these other&#39;s aren&#39;t bad to have either.</span></a>
-<a class="sourceLine" id="cb64-2" title="2"><span class="kw">p_load</span>(tidyverse, haven, ggplot2)</a></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" title="1"><span class="co">#We just need the tidyverse package today, but these other </span></a>
+<a class="sourceLine" id="cb64-2" title="2"><span class="co"># packages aren&#39;t bad to have either.</span></a>
+<a class="sourceLine" id="cb64-3" title="3"><span class="kw">p_load</span>(tidyverse, haven, ggplot2)</a></code></pre></div>
 </div>
 </div>
 </div>
@@ -1915,9 +1931,9 @@ div.tocify {
 <h1>Lesson 6: The Tidyverse</h1>
 <p>The package we just installed, <em>tidyverse</em>, is actually a whole set of packages wrapped together. These packages all come wrapped together because they help serve a common purpose:</p>
 <p><span class="math inline">\(rightarrow\)</span> they facilitate making datasets ‘tidy,’ so that R can work with them more easily.</p>
-<p>We need a dataframe to start with, so we’re going to use a dataset that is built into the tidyverse package. Let’s give it a name so we can work with it:</p>
+<p>We need a dataframe to start with, so we’re going to use some data that comes with the tidyverse package. Let’s give it a name so we can work with it:</p>
 <div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb65-1" title="1">our_data &lt;-<span class="st"> </span>starwars</a></code></pre></div>
-<p>We can view our data frame by typing <em>view(data)</em> or by clicking the name in the environment tab. This will pop out something like a spreadsheet:</p>
+<p>We can view our data frame by typing <em>view(data)</em> or by clicking the name in the environment tab. This will pop out something like a spreadsheet in a new tab:</p>
 <div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" title="1"><span class="kw">view</span>(our_data)</a></code></pre></div>
 <pre><code>## # A tibble: 87 x 14
 ##    name    height  mass hair_color  skin_color eye_color birth_year sex   gender
@@ -1939,7 +1955,7 @@ div.tocify {
 <pre><code>##  [1] &quot;name&quot;       &quot;height&quot;     &quot;mass&quot;       &quot;hair_color&quot; &quot;skin_color&quot;
 ##  [6] &quot;eye_color&quot;  &quot;birth_year&quot; &quot;sex&quot;        &quot;gender&quot;     &quot;homeworld&quot; 
 ## [11] &quot;species&quot;    &quot;films&quot;      &quot;vehicles&quot;   &quot;starships&quot;</code></pre>
-<p>Tidyverse is a huge set of packages, so today we will be focusing on functions from the dplyr package:</p>
+<p>Tidyverse is a huge set of packages, but today we will be focusing on functions from the dplyr package:</p>
 <ul>
 <li>select(): subset columns</li>
 <li>filter(): subset rows on conditions</li>
@@ -1966,7 +1982,7 @@ div.tocify {
 ##  9 Biggs Darklighter  masculine Tatooine 
 ## 10 Obi-Wan Kenobi     masculine Stewjon  
 ## # ... with 77 more rows</code></pre>
-<p>Notice that this didn’t save anything in our global environment! If you wantto save this new dataframe, you have to give it a name!</p>
+<p>Notice that this didn’t save anything in our global environment! If you want to save this new dataframe, you have to give it a name!</p>
 <p>To select all columns except a certain one, use a minus sign:</p>
 <div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" title="1"><span class="kw">select</span>(our_data, <span class="kw">c</span>(<span class="op">-</span>starships, <span class="op">-</span>vehicles))</a></code></pre></div>
 <pre><code>## # A tibble: 87 x 12
@@ -2039,7 +2055,7 @@ div.tocify {
 <p>The pipe symbol ‘%&gt;%’ lets us chain functions together</p>
 <ul>
 <li>The pipe connects the LHS to the RHS. (Like reading a book)</li>
-<li>You can think about this like a conveyor belt between machines in a factory: <span class="math inline">\(\rightarrow\)</span> Each machine does something to our object, then we use a conveyer belt (a pipe) to take whatever a machine spits out, and send it to the next machine to do something further</li>
+<li>You can think about this like a conveyor belt between machines in a factory: <span class="math inline">\(\rightarrow\)</span> Each machine does something to our object, then we use a conveyer belt (a pipe) to take whatever a machine spits out, and send it to the next machine to do some further work</li>
 </ul>
 <p>Let’s make/save a new dataframe where we select the name, height, and mass, then filter out those who are shorter than 100 cm:</p>
 <div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb80-1" title="1">new_df &lt;-<span class="st"> </span>our_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(name, height, mass) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(height <span class="op">&gt;=</span><span class="st"> </span><span class="dv">100</span>)</a>
@@ -2058,13 +2074,13 @@ div.tocify {
 ##  9 Anakin Skywalker      188    84
 ## 10 Wilhuff Tarkin        180    NA
 ## # ... with 64 more rows</code></pre>
-<p>Self check: Using pipes and the tidyverse, make a new data frame where you select all columns except gender and has characters that appear ONLY in the film “A New Hope”</p>
+<p>Self check: Using pipes and the tidyverse, make a new data frame where you select all columns except gender and has characters that appear ONLY in the film “A New Hope”. As before, you can click on the ’ <em>code</em> ’ button to get the answer.</p>
 <div class="sourceCode" id="cb82"><pre class="sourceCode r fold-hide"><code class="sourceCode r"><a class="sourceLine" id="cb82-1" title="1">example_df &lt;-<span class="st"> </span>our_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span>gender) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(films <span class="op">==</span><span class="st"> &quot;A New Hope&quot;</span>)</a></code></pre></div>
 </div>
 <div id="back-to-the-tidyverse" class="section level2">
 <h2>Back to the Tidyverse</h2>
-<p>With that quick intro to pipes, we’re ready to move deeper into the Tidyverse</p>
-<p>We can use arrage to order our data by some value. For instance, we can sort all of the characters in <em>our_data</em> by their height:</p>
+<p>With that quick intro to pipes, we’re ready to move deeper into the Tidyverse.</p>
+<p>We can use <em>arrage</em> to order our data by some value. For instance, we can sort all of the characters in <em>our_data</em> by their height:</p>
 <div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" title="1">our_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(height)</a></code></pre></div>
 <pre><code>## # A tibble: 87 x 14
 ##    name     height  mass hair_color skin_color eye_color birth_year sex   gender
@@ -2115,7 +2131,7 @@ div.tocify {
 ## 10 Beru W~    165    75 brown      light       blue            47   fema~ femin~
 ## # ... with 77 more rows, and 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;,
 ## #   films &lt;list&gt;, vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
-<p>You’ll end up using mutate a lot, since it lets us make new variables from old ones. Let’s create a new variable that measures height in inches instead of centimeters - 2.54cm = 1 inch</p>
+<p>You’ll end up using <em>mutate</em> a lot, since it lets us make new variables from old ones. Let’s create a new variable that measures height in inches instead of centimeters - (2.54cm = 1 inch)</p>
 <div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" title="1">our_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">height_inches =</span> height<span class="op">/</span><span class="fl">2.54</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 87 x 15
 ##    name    height  mass hair_color  skin_color eye_color birth_year sex   gender
@@ -2149,7 +2165,7 @@ div.tocify {
 ## 10 Obi-Wa~    182    77 auburn, wh~ fair       blue-gray       57   male  mascu~
 ## # ... with 77 more rows, and 6 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;,
 ## #   films &lt;list&gt;, vehicles &lt;list&gt;, starships &lt;list&gt;, total &lt;dbl&gt;</code></pre>
-<p>We often use group_by and summarize together. In plain English, <em>group_by</em> lets us tell R that we want to separate our data into different chunks. This is useful, because then we can use the <em>summarize</em> function to compute summary statistics on those chunks.</p>
+<p>We often use group_by and summarize together. In plain English, <em>group_by</em> lets us tell R that we want to separate our data into different chunks. This is useful, because then we can use the <em>summarize</em> function to compute summary statistics on those chunks, instead of on the whole dataset.</p>
 <p>For instance, we could use these functions to find the average height for each species in our data:</p>
 <div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb93-1" title="1">our_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(species) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarize</span>(<span class="dt">avg_height =</span> <span class="kw">mean</span>(height))</a></code></pre></div>
 <pre><code>## # A tibble: 38 x 2
@@ -2203,8 +2219,13 @@ div.tocify {
 </div>
 <div id="lesson-7-ols-regression-in-r" class="section level1">
 <h1>Lesson 7: OLS Regression in R</h1>
-<p>Since this is a metrics class, let’s wrap up with a quick intro to running regressions in R. As you should have guessed by now, we can use a function to run regressions in R: the <em>lm()</em> function.</p>
-<p>To use lm(), we have to give R the formula for the regression we want, and the data we want it to run on</p>
+<p>Since this is a metrics class, let’s wrap up with a quick intro to running regressions in R. As you should have guessed by now, we can use a function to run regressions: the <em>lm()</em> function.</p>
+<p>To use lm(), we have to give R 2 things:</p>
+<ol style="list-style-type: decimal">
+<li><p>the formula for the regression we want</p></li>
+<li><p>the data we want to run the regression with</p></li>
+</ol>
+<p>A generic example is below:</p>
 <div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" title="1"><span class="kw">lm</span>(dependent_variable <span class="op">~</span><span class="st"> </span>independent_variable_<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>independent_variable_<span class="dv">2</span>, <span class="dt">data =</span> name_of_df)</a>
 <a class="sourceLine" id="cb99-2" title="2"></a>
 <a class="sourceLine" id="cb99-3" title="3"><span class="co">##Note: if we want R to save the results of this regression,</span></a>
@@ -2212,32 +2233,28 @@ div.tocify {
 <a class="sourceLine" id="cb99-5" title="5"></a>
 <a class="sourceLine" id="cb99-6" title="6">name=<span class="kw">lm</span>(dependent_variable <span class="op">~</span><span class="st"> </span>independent_variable_<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>independent_variable_<span class="dv">2</span>, <span class="dt">data =</span> name_of_df)</a></code></pre></div>
 <p>For example, let’s regress height on mass:</p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb100-1" title="1">reg1 &lt;-<span class="st"> </span><span class="kw">lm</span>(height <span class="op">~</span><span class="st"> </span>mass, <span class="dt">data =</span> our_data)</a></code></pre></div>
-<p>Okay, cool. But how do we look at the output of our regression?</p>
-<p><span class="math inline">\(\rightarrow\)</span> The <em>summary()</em> function does this for us quickly:</p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" title="1"><span class="kw">summary</span>(reg1)</a></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb100-1" title="1">reg1 &lt;-<span class="st"> </span><span class="kw">lm</span>(height <span class="op">~</span><span class="st"> </span>mass, <span class="dt">data =</span> our_data)</a>
+<a class="sourceLine" id="cb100-2" title="2"></a>
+<a class="sourceLine" id="cb100-3" title="3"><span class="kw">class</span>(reg1)</a></code></pre></div>
+<pre><code>## [1] &quot;lm&quot;</code></pre>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb102-1" title="1"><span class="co">##Notice: regression objects in R are special enough that they have their own class: &quot;lm&quot;</span></a></code></pre></div>
+<p>Note that we can also use pipes and the tidyverse with <em>lm()</em></p>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb103-1" title="1">reg2 &lt;-<span class="st"> </span><span class="kw">lm</span>(height <span class="op">~</span><span class="st"> </span>mass, <span class="dt">data =</span> our_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(species <span class="op">!=</span><span class="st"> &quot;Hutt&quot;</span>))</a></code></pre></div>
+<p>Okay, cool. But can we look at the output of our regression?</p>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb104-1" title="1"><span class="co">##let&#39;s try it the simple way, by just calling the object</span></a>
+<a class="sourceLine" id="cb104-2" title="2">reg2</a></code></pre></div>
 <pre><code>## 
 ## Call:
-## lm(formula = height ~ mass, data = our_data)
-## 
-## Residuals:
-##      Min       1Q   Median       3Q      Max 
-## -105.763   -5.610    6.385   18.202   58.897 
+## lm(formula = height ~ mass, data = our_data %&gt;% filter(species != 
+##     &quot;Hutt&quot;))
 ## 
 ## Coefficients:
-##              Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) 171.28536    5.34340   32.05   &lt;2e-16 ***
-## mass          0.02807    0.02752    1.02    0.312    
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-## 
-## Residual standard error: 35.52 on 57 degrees of freedom
-##   (28 observations deleted due to missingness)
-## Multiple R-squared:  0.01792,    Adjusted R-squared:  0.0006956 
-## F-statistic:  1.04 on 1 and 57 DF,  p-value: 0.312</code></pre>
-<p>Note that we can also use pipes and the tidyverse with <em>lm()</em></p>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb103-1" title="1">reg2 &lt;-<span class="st"> </span><span class="kw">lm</span>(height <span class="op">~</span><span class="st"> </span>mass, <span class="dt">data =</span> our_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(species <span class="op">!=</span><span class="st"> &quot;Hutt&quot;</span>))</a>
-<a class="sourceLine" id="cb103-2" title="2"><span class="kw">summary</span>(reg2)</a></code></pre></div>
+## (Intercept)         mass  
+##      101.67         0.95</code></pre>
+<p>…okay. That kind of helps… But R is supposed to be really good at statistics… Where are my p-values at?</p>
+<p>We can do better. ‘lm’ objects actually have a lot of info under the hood. The lm object <em>does</em> contain things like T-values, p-values, degrees of freedom, and other cool stuff.</p>
+<p><span class="math inline">\(\rightarrow\)</span> The <em>summary()</em> function will extract this info for us quickly</p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb106-1" title="1"><span class="kw">summary</span>(reg2)</a></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = height ~ mass, data = our_data %&gt;% filter(species != 
@@ -2258,15 +2275,20 @@ div.tocify {
 ##   (25 observations deleted due to missingness)
 ## Multiple R-squared:  0.5919, Adjusted R-squared:  0.5845 
 ## F-statistic: 79.77 on 1 and 55 DF,  p-value: 2.72e-12</code></pre>
-<p>Before we end, try to answer these questions about <em>reg2</em> to job your memory from your last metrics class: 1. Can you interpret the coefficient on mass from <em>reg2</em>? What about the intercept? 2. What are the null and alternative hypotheses being used to create the T-value on the mass variable? 3. Is the coefficient for mass significant at the 5% level?</p>
+<p>Before we end, try to answer these questions about <em>reg2</em> to jog your memory from your last metrics class:</p>
+<ol style="list-style-type: decimal">
+<li>Can you interpret the coefficient on mass from <em>reg2</em>? What about the intercept?</li>
+<li>What are the null and alternative hypotheses being used to create the T-value on the mass variable?</li>
+<li>Is the coefficient for mass significant at the 5% level?</li>
+</ol>
 <p>(Once you’ve given this some thought, the answers are hidden below)</p>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r fold-hide"><code class="sourceCode r"><a class="sourceLine" id="cb105-1" title="1"><span class="co"># 1. The coefficient on mass says that with a 1 kg increase in mass, height increases by .95 cm. </span></a>
-<a class="sourceLine" id="cb105-2" title="2"><span class="co">#    The intercept value says that if a person weighs 0 kg, they would be 101 cm tall</span></a>
-<a class="sourceLine" id="cb105-3" title="3"></a>
-<a class="sourceLine" id="cb105-4" title="4"><span class="co"># 2. beta_1 = 0, Ha: beta_1 /= 0</span></a>
-<a class="sourceLine" id="cb105-5" title="5"></a>
-<a class="sourceLine" id="cb105-6" title="6"><span class="co"># 3. Since p &lt; .05, we reject the null hypothesis at the 5% level. </span></a>
-<a class="sourceLine" id="cb105-7" title="7"><span class="co"># That is, the coefficient is significant at the 5%</span></a></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r fold-hide"><code class="sourceCode r"><a class="sourceLine" id="cb108-1" title="1"><span class="co"># 1. The coefficient on mass says that with a 1 kg increase in mass, height increases by .95 cm. </span></a>
+<a class="sourceLine" id="cb108-2" title="2"><span class="co">#    The intercept value says that if a person weighs 0 kg, they would be ~101 cm tall</span></a>
+<a class="sourceLine" id="cb108-3" title="3"></a>
+<a class="sourceLine" id="cb108-4" title="4"><span class="co"># 2. beta_1 = 0, Ha: beta_1 /= 0</span></a>
+<a class="sourceLine" id="cb108-5" title="5"></a>
+<a class="sourceLine" id="cb108-6" title="6"><span class="co"># 3. Since p &lt; .05, we reject the null hypothesis at the 5% level. </span></a>
+<a class="sourceLine" id="cb108-7" title="7"><span class="co"># That is, the coefficient is significant at the 5%</span></a></code></pre></div>
 </div>
 
 

@@ -15,13 +15,15 @@ output:
 
 
 # Introduction
--My name is Robert, welcome to econometrics lab.
+- My name is Robert, welcome to econometrics lab.
 
--This walkthrough is meant to serve as a supplement for the econometrics discussion from Wednesday, Week 1. As anyone who was there knows, we had some technical issues that made the first lab a little choppy. (Thanks, campus wifi). 
+- This walkthrough is meant to serve as a supplement for the econometrics discussion from Wednesday, Week 1. As anyone who was there knows, we had some technical issues that made the first lab a little choppy. 
 
--If you want to follow along with this document, open R studio and try copying the code I've got below. It should run pretty smoothly.
+(Thanks, campus wifi). 
 
--You should be able to access the recording of that discussion section on Canvas. 
+- If you want to follow along with this document, open R studio and try copying the code I've got below. It should run pretty smoothly.
+
+- You should be able to access the recording of that discussion section on Canvas. 
 
 # R Basics
 Today we are going to cover the basics of working in R and RStudio. In order to work through this lab, you'll need to have R and RStudio already installed. If you are not already familiar with the basic layout of RStudio, please watch the beginning of that Zoom recording (starting around minute 8) where I go through what you see when you open RStudio.
@@ -39,17 +41,20 @@ Once we write a line of code that we actually want to use, we can get the comput
 
 We will be working with what is called a *script*. This is similar to a do file in Stata. It's basically your workspace. It lets us write, run, and save as much code as we want.
 
+- We can also write and run code from the command line. This is useful for small one-off things that we want to do (say, a quick bit of math), but is not as useful when it comes to bigger projects.
+
 # Objects and Functions
 
 ## Lesson 1: All things are objects
 
-Everything in R is an object. Every object has two components: a name, and a value. The name is always the same: a string of characters we choose which *cannot* start with a number or contain spaces. The value of an object can be almost anything. A value can be as simple as a number, or as complicated as a matrix (or even more complicated).
+Everything in R is an object, and every object has two components: a name, and a value. The name is always the same: a string of characters we choose which *cannot* start with a number or contain spaces. The value of an object can be almost anything. A value can be as simple as a number, or as complicated as a matrix (or even more complicated).
 
 
 - Once we have some objects, we use functions to manipulate, interact with, create, or get rid of those objects. More on this shortly. First, let's make some objects. 
 
 ```{R, objects}
-#to make an object, we choose a name, then use the '<-' or '=' sign. Then, we put the value to the right of the '='.
+# To make an object, we choose a name, then use the '<-' or '=' sign.
+# Then, we put the value to the right of the '='.
 x<-10
 y=5
 ```
@@ -67,10 +72,11 @@ c
 d=x/y
 d
 ```
+Note: when you run a line of code in R from a script, you'll see that line of code pop up near the bottom of the console window. Unless an error message also shows up, this means R has run the line. (More on error messages in a second)
 
 ## Lesson 2: There are several types of objects
 
-But, as I said, an object does not need to be a number. We can also make *character* objects (strings of text).
+As I said, an object does not need to be a number. We can also make *character* objects (strings of text). Let's give it a shot
 
 ```{R, objects2, error=T}
 sentence= Robert needs a haircut.
@@ -102,9 +108,10 @@ vector2=c(a,b,c,d)
 vector2
 ```
 
-A quick check-in question: how could I make a vector with the actual letters a,b,c,d.  Give that a try, and then expand the code below for the answer.
+A quick check-in question: how could I make a vector with the actual letters a,b,c,d.  Give that a try, and once you think you've got the answer, hit the ' *code* ' button to the right to see how I'd write that code.
 ```{R class.source = 'fold-hide', check_in_vectors, eval=F}
-##If we want R to give us a vector with the characters a,b,c,d... then we just need to tell R that we want those characters using quotation marks!
+##If we want R to give us a vector with the characters a,b,c,d
+## then we just need to tell R that we want those characters using quotation marks!
 
 Vector_letters=c("a","b","c","d")
 ```
@@ -133,9 +140,7 @@ NULL is a special name in R: it's the way that we tell R (or R tells us) "this d
 
 So, why didn't R include '*NULL*' to our vector? 
 
-$\rightarrow$ Because you can't add the philosophical concept of nonexistence to a vector in R 
-
-(insert [mind_blown.gif](http://gph.is/1MWJgze) here). 
+$\rightarrow$ Because you can't add the philosophical concept of nonexistence to a vector in R. (insert [mind_blown.gif](http://gph.is/1MWJgze) here.)
 
 
 
@@ -160,11 +165,13 @@ rm()
 
 rm(vector2)
 
-##Using rm(), there is a  way to delete EVERYTHING in your R environment. I won't tell you what it is, but a quick google will do the trick. 
+##Using rm(), there is a  way to delete EVERYTHING in your R environment.
+##I won't tell you what it is, but a quick google will do the trick. 
 ```
-Use rm() carefully. Once something is deleted in R, you can't get it back.
+Use rm() carefully. Once something is deleted in R, you can't get it back. You'll have to recreate it from scratch.
 
-
+<br>
+<br>
 But you've actually already used a function: *c()*. This is the function to make a list or a vector.
 
 Some of the functions you'll use most commonly are for peeking at or summarizing complicated objects. 
@@ -211,7 +218,9 @@ number_sequence=seq(1:10)
 number_sequence
 ```
 
-But, seq() can make trickier sequences, too. For practice, use the seq() function in R to calculate the sum of all the even numbers between 0 and 1 million. (0,2,4,6,8,...). After you think you've got it, expand the code below to see one way you could do it, and the right answer
+But, seq() can make trickier sequences, too...
+
+For practice, use the seq() function in R to calculate the sum of all the even numbers between 0 and 1 million. (0+2+4+6+8+...). After you think you've got it, expand the code below to see one way you could do it, and the right answer
 
 *hint: maybe get some help from R by using ?seq*
 
@@ -224,7 +233,7 @@ evens=seq(0,1000000, by=2)
 head(evens)
 
 ##And now let's compute the sum!
-sum(b)
+sum(evens)
 ```
 
 ## Lesson 4: Each object has a class
@@ -233,7 +242,7 @@ Before we finish with objects and functions, I should mention that every object 
 
 Classes are important, because R is only willing to use certain functions on certain classes: 
 
-- EX: R will not do math on characters. R is really good at math, but even R has not figured out how compute: "blueberry+ Chicago"
+- EX: R will not do math on characters. R is really good at math, but even R has not figured out how compute: "blueberry + Chicago"
 
 We can check the class of something using the class() function
 
@@ -251,7 +260,7 @@ class(vector3)
 ```
 It's a character, so we can't do mathematical operations on it! 
 
-But notice that even though we have a number in the vector, R has converted it to a character 
+But notice that R has converted the number 40 in vector3 to a character 
 
 (the letter a has '' around it).
 
@@ -260,14 +269,17 @@ vector3
 ```
 Why is this happening?
 
-$\rightarrow$ When you make a list or vector in R, R wants all of the entries in that list to be the same class, so that it can assign that class to the whole object. If you try to give R a vector with different types of entries, R will *help* you by 'coercing' all of the entries to the same class. 
+$\rightarrow$ When you make a list (vector) in R, R wants all of the entries in that list to be the same class, so that it can assign that class to the whole object. If you try to give R a vector with different types of entries, R will *help* you by 'coercing' all of the entries to the same class. 
 
-(Note: Whether or not this is actually helpful will depend on your circumstances. Every R user has a story about how R's 'help' has ruined some otherwise good code.)
+- In this case, since R can't find a way to convert 'banana' to a number, it only has one option: it has to convert the number 40 to the text string '40'
+
+(Note: Whether or not this is actually helpful will depend on your situation. Every R user has a story about how R's 'help' has ruined some otherwise good code.)
 
 # Using Packages
+
 R is really useful because of its ability to use *packages*.
 
-- Additional software, functions, data, etc. that someone has programmed for R.
+- Additional software, functions, data, etc. that someone has programmed to be used in R.
 
 ## Lesson 5: Installing and Loading Packages:
 To use a package, we need to 
@@ -288,11 +300,11 @@ You'll need to reload packages each time you re-open RStudio.
 
 ### Why use a package?
 
-The big benefit of packages is that they let us avoid extra work. Instead of figuring out how to get R to do something complicated or time consuming, there may be a package that someone has already written that will do that work for us.
+The big benefit of packages is that they let us avoid extra work. Instead of figuring out how to get R to do something complicated or time consuming, there may be a package that someone has already written that will do that work for us faster.
  
 For instance. Say we need to load 20 packages into R. Using library(), this would take a bit of typing!
 
-- And what if we can't remember if we've already installed all 20 packages?
+- (And what if we can't remember if we've already installed all 20 packages?)
 
 Pacman is a package for "package management" - it helps us load multiple packages at once. Let's install and use it:
 
@@ -321,7 +333,8 @@ p_load(tidyverse)
 - also cool: the p_load function can load/install as many packages as we want:
 
 ```{R pacman_2, eval=F}
-#We just need the tidyverse package today, but these other's aren't bad to have either.
+#We just need the tidyverse package today, but these other 
+# packages aren't bad to have either.
 p_load(tidyverse, haven, ggplot2)
 ```
 
@@ -331,13 +344,13 @@ The package we just installed, *tidyverse*, is actually a whole set of packages 
 
 $rightarrow$ they facilitate making datasets 'tidy,' so that R can work with them more easily. 
 
-We need a dataframe to start with, so we're going to use a dataset that is built into the tidyverse package. Let's give it a name so we can work with it:
+We need a dataframe to start with, so we're going to use some data that comes with the tidyverse package. Let's give it a name so we can work with it:
  
 ```{R starwars}
 our_data <- starwars
 ```
 
-We can view our data frame by typing *view(data)* or by clicking the name in the environment tab. This will pop out something like a spreadsheet:
+We can view our data frame by typing *view(data)* or by clicking the name in the environment tab. This will pop out something like a spreadsheet in a new tab:
 
 ```{R view}
 view(our_data)
@@ -352,7 +365,7 @@ We can also look at names of variables in our data using the *name()* function:
 names(our_data)
 ```
 
-Tidyverse is a huge set of packages, so today we will be focusing on functions from the dplyr package:
+Tidyverse is a huge set of packages, but today we will be focusing on functions from the dplyr package:
 
 * select(): subset columns
 * filter(): subset rows on conditions
@@ -369,7 +382,7 @@ Let's select only the name, gender, and homeworld variables from *our_data*
 ```{R select}
 select(our_data, c(name, gender, homeworld))
 ```
-Notice that this didn't save anything in our global environment! If you wantto save this new dataframe, you have to give it a name!
+Notice that this didn't save anything in our global environment! If you want to save this new dataframe, you have to give it a name!
 
 To select all columns except a certain one, use a minus sign:
 ```{R minus}
@@ -394,7 +407,7 @@ The pipe symbol '%>%' lets us chain functions together
 
 * The pipe connects the LHS to the RHS. (Like reading a book)
 * You can think about this like a conveyor belt between machines in a factory:
- $\rightarrow$ Each machine does something to our object, then we use a conveyer belt (a pipe) to take whatever a machine spits out, and send it to the next machine to do something further
+ $\rightarrow$ Each machine does something to our object, then we use a conveyer belt (a pipe) to take whatever a machine spits out, and send it to the next machine to do some further work
  
 Let's make/save a new dataframe where we select the name, height, and mass, then filter out those who are shorter than 100 cm:
 
@@ -403,16 +416,16 @@ new_df <- our_data %>% select(name, height, mass) %>% filter(height >= 100)
 new_df
 ```
 
-Self check: Using pipes and the tidyverse, make a new data frame where you select all columns except gender and has characters that appear ONLY in the film "A New Hope"
+Self check: Using pipes and the tidyverse, make a new data frame where you select all columns except gender and has characters that appear ONLY in the film "A New Hope". As before, you can click on the ' *code* ' button to get the answer.
 ```{R class.source = 'fold-hide', problem_pipes}
 example_df <- our_data %>% select(-gender) %>% filter(films == "A New Hope")
 ```
 
 ## Back to the Tidyverse
 
-With that quick intro to pipes, we're ready to move deeper into the Tidyverse 
+With that quick intro to pipes, we're ready to move deeper into the Tidyverse.
 
-We can use arrage to order our data by some value. For instance, we can sort all of the characters in *our_data* by their height:
+We can use *arrage* to order our data by some value. For instance, we can sort all of the characters in *our_data* by their height:
 ```{R arrange}
 our_data %>% arrange(height)
 # Notice this does lowest to highest, we can do the other way too:
@@ -425,8 +438,8 @@ Self check: Arrange the characters names in alphabetical order
 our_data %>% arrange(name)
 ```
 
-You'll end up using mutate a lot, since it lets us make new variables from old ones. Let's create a new variable that measures height in inches instead of centimeters 
-- 2.54cm = 1 inch
+You'll end up using *mutate* a lot, since it lets us make new variables from old ones. Let's create a new variable that measures height in inches instead of centimeters 
+- (2.54cm = 1 inch)
 ```{R metric system}
 our_data %>% mutate(height_inches = height/2.54)
 ```
@@ -437,12 +450,14 @@ Self check: Create a new variable that is the sum of person's mass and height
 our_data %>% mutate(total = height + mass)
 ```
 
-We often use group_by and summarize together. In plain English, *group_by* lets us tell R that we want to separate our data into different chunks. This is useful, because then we can use the *summarize* function to compute summary statistics on those chunks.
+We often use group_by and summarize together. In plain English, *group_by* lets us tell R that we want to separate our data into different chunks. This is useful, because then we can use the *summarize* function to compute summary statistics on those chunks, instead of on the whole dataset.
 
 For instance, we could use these functions to find the average height for each species in our data:
 ```{R group_by}
 our_data %>% group_by(species) %>% summarize(avg_height = mean(height))
+```
 
+```{R group_by2}
 # Notice we have NA's! We can get rid of those using the na.omit() function
 our_data %>% na.omit() %>% group_by(species) %>% summarize(avg_height = mean(height))
 ```
@@ -454,11 +469,17 @@ We could use this to figure out how many species are in our data:
 our_data %>% count(species) 
 ```
 
+
 # Lesson 7: OLS Regression in R
-Since this is a metrics class, let's wrap up with a quick intro to running regressions in R. As you should have guessed by now, we can use a function to run regressions in R: the *lm()* function.
+Since this is a metrics class, let's wrap up with a quick intro to running regressions in R. As you should have guessed by now, we can use a function to run regressions: the *lm()* function.
 
-To use lm(), we have to give R the formula for the regression we want, and the data we want it to run on
+To use lm(), we have to give R 2 things:
 
+1. the formula for the regression we want
+
+2. the data we want to run the regression with
+
+A generic example is below:
 ```{R OLS, eval=F}
 lm(dependent_variable ~ independent_variable_1 + independent_variable_2, data = name_of_df)
 
@@ -473,24 +494,36 @@ For example, let's regress height on mass:
 
 ```{R reg_sw}
 reg1 <- lm(height ~ mass, data = our_data)
-```
 
-Okay, cool. But how do we look at the output of our regression?
-
-$\rightarrow$ The *summary()* function does this for us quickly:
-
-```{R reg_summary}
-summary(reg1)
+class(reg1)
+##Notice: regression objects in R are special enough that they have their own class: "lm"
 ```
 
 Note that we can also use pipes and the tidyverse with *lm()*
 
 ```{R reg_2}
 reg2 <- lm(height ~ mass, data = our_data %>% filter(species != "Hutt"))
+```
+
+Okay, cool. But can we look at the output of our regression?
+
+```{R reg_simple}
+##let's try it the simple way, by just calling the object
+reg2
+```
+...okay. That kind of helps... But R is supposed to be really good at statistics... Where are my p-values at?
+
+We can do better. 'lm' objects actually have a lot of info under the hood. The lm object *does* contain things like T-values, p-values, degrees of freedom, and other cool stuff. 
+
+$\rightarrow$ The *summary()* function will extract this info for us quickly
+
+```{R reg_summary}
 summary(reg2)
 ```
 
-Before we end, try to answer these questions about *reg2* to job your memory from your last metrics class:
+
+Before we end, try to answer these questions about *reg2* to jog your memory from your last metrics class:
+
 1. Can you interpret the coefficient on mass from *reg2*? What about the intercept?
 2. What are the null and alternative hypotheses being used to create the T-value on the mass variable?
 3. Is the coefficient for mass significant at the 5% level?
@@ -498,7 +531,7 @@ Before we end, try to answer these questions about *reg2* to job your memory fro
 (Once you've given this some thought, the answers are hidden below)
 ```{R  class.source = 'fold-hide', answers}
 # 1. The coefficient on mass says that with a 1 kg increase in mass, height increases by .95 cm. 
-#    The intercept value says that if a person weighs 0 kg, they would be 101 cm tall
+#    The intercept value says that if a person weighs 0 kg, they would be ~101 cm tall
 
 # 2. beta_1 = 0, Ha: beta_1 /= 0
 
