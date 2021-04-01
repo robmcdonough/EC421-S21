@@ -11,6 +11,6 @@ In general, you can expect that each week's code will be made available on Wedne
 ***
 # Code from Labs
 
-[**Lab 1**](https://raw.githack.com/robmcdonough/EC421-S21/main/Lab_1.html)
+<font size="+2"> - [**Lab 1**](https://raw.githack.com/robmcdonough/EC421-S21/main/Lab_1.html)</font>
 
- - [**Rmarkdown version**](https://raw.githack.com/robmcdonough/EC421-S21/main/Lab_1.Rmd)
+ <sub>[**Rmarkdown version**](https://raw.githack.com/robmcdonough/EC421-S21/main/Lab_1.Rmd)</sub>
