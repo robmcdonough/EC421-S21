@@ -15,13 +15,12 @@ output:
 
 
 # Introduction
+
 - My name is Robert, welcome to econometrics lab.
 
-- This walkthrough is meant to serve as a supplement for the econometrics discussion from Wednesday, Week 1. As anyone who was there knows, we had some technical issues that made the first lab a little choppy. 
+- This walkthrough is meant to serve as a supplement for the econometrics discussion from Wednesday, Week 1. As anyone who was there knows, we had some technical issues that made the first lab a little choppy. (Thanks, campus wifi). 
 
-(Thanks, campus wifi). 
-
-- If you want to follow along with this document, open R studio and try copying the code I've got below. It should run pretty smoothly.
+- If you want to follow along with this document, open R studio and try copying the code I've got below into a blank R script. It should run pretty smoothly.
 
 - You should be able to access the recording of that discussion section on Canvas. 
 
