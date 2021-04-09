@@ -14,3 +14,7 @@ In general, you can expect that each week's code will be made available on Wedne
 <font size="+2"> - [**Lab 1**](https://raw.githack.com/robmcdonough/EC421-S21/main/Lab_1.html)</font>
 
  <sub>[**Rmarkdown version**](https://raw.githack.com/robmcdonough/EC421-S21/main/Lab_1.Rmd)</sub>
+
+
+<font size="+2"> - [**Lab 2 (R code)**](https://raw.githubusercontent.com/robmcdonough/EC421-S21/main/Lab_2.R)</font>
+
