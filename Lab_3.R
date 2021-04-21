@@ -166,7 +166,7 @@ p_GQ
 
 #H1: stat_GQ > 1
 
-##Note: we wrote this as a one-sided test. We'll start lab $ by talking about
+##Note: we wrote this as a one-sided test. We'll start lab 4 by talking about
 ##turning this into a 2-sided test. 
 
 ##In this case, we reject the null hypothesis (p<0.05)
