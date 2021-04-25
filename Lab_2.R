@@ -46,6 +46,16 @@ read.csv("dataset-34020.csv")
 
 bush_approval=read.csv("dataset-34020.csv")
 
+##UPDATE: Some folks have had trouble downloading the data this way. I have added the .csv file to the discussion section
+##github page. To download the data into R, you should be able to just run the following lines of code:
+
+##the 'readr' package has a bunch of good functions to load in data.
+p_load(readr)
+
+
+##(this line of code actuallytells R to download the data at this link on my github page)
+bush_approval=read_csv(url("https://raw.githubusercontent.com/robmcdonough/EC421-S21/main/dataset-34020.csv"))
+
 ##let's explore the data a bit:
 
 View(bush_approval)
