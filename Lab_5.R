@@ -281,6 +281,6 @@ ts_model(200,5,.39,.87,0.04)
 
 ##We didn't have time for this in lab, but we can also graph our new time series really easily:
 #Actually, we can pass the `ts_model()` function we made into a ggplot, and generate a graph of the process!
-ggplot(aes(x = time, y = model), data = ts_model(3,.39, .87, .04, 100)) +  
+ggplot(aes(x = time, y = model), data = ts_model(200,5,.39, .87, .04)) +  
   geom_line(col = 'purple') +
   theme_minimal()
