@@ -3,7 +3,7 @@ library(pacman)
 p_load(lmtest)
 p_load(tidyverse)
 
-##To start, I am NOT loading the tidyverse package (there's a reason for this that will come up soon)
+##To start, I am NOT loading the tidyverse package right now (there's a reason for this that will come up soon)
 
 ##Last week, we modified our super-cool time series function so that it included autocorrelation:
 ts_ar_model=function(t,y_init, a_0,a_1, phi, sigma){
