@@ -29,3 +29,7 @@ In general, you can expect that each week's code will be made available on Wedne
 <font size="+2"> - [**Lab 7 (R code)**](https://raw.githubusercontent.com/robmcdonough/EC421-S21/main/Lab_7.R)</font>
 
 <font size="+2"> - [**Lab 8 (R code)**](https://raw.githubusercontent.com/robmcdonough/EC421-S21/main/Lab_8.R)</font>
+
+<font size="+2"> - [**Lab 9 (R code)**](https://raw.githubusercontent.com/robmcdonough/EC421-S21/main/Lab_9.R)</font>
+
+<font size="+2"> - [**Lab 10 (R code)**](https://raw.githubusercontent.com/robmcdonough/EC421-S21/main/Lab_10.R)</font>
